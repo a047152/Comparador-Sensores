@@ -1,0 +1,55 @@
+:root{--paper:#f4efe6;--panel:#fffdf8;--ink:#1d2327;--muted:#5d666b;--line:#d9d0bf;--a:#1f6f78;--b:#c2501f;--band:#dfe9d2;--warn:#fff1c9;--warnline:#d9b23a;--err:#fbe3df;--errline:#c4503f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;max-width:1000px;margin-inline:auto;padding:24px 16px 64px}
+h1,h2,.big{font-family:Georgia,"Times New Roman",serif;font-weight:600}
+h1{font-size:clamp(1.5rem,3.6vw,2.1rem);line-height:1.2;margin:.2em 0 .4em}
+h2{font-size:1.15rem;margin:0 0 .6em}
+.kicker{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.scenario{color:var(--muted);margin:0 0 1rem;max-width:64ch}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label{display:flex;flex-direction:column;font-size:.85rem;color:var(--muted);gap:4px}
+select,input{font:inherit;color:var(--ink);padding:7px 8px;border:1px solid var(--line);border-radius:4px;background:#fff}
+.actions{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+button{font:inherit;font-weight:600;background:var(--ink);color:#fff;border:0;border-radius:4px;padding:9px 16px;cursor:pointer}
+button:disabled{opacity:.5;cursor:wait}
+button.secondary{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hint{font-size:.82rem;color:var(--muted)}
+.banner{border:1px solid var(--warnline);background:var(--warn);padding:10px 14px;border-radius:6px;margin:12px 0;font-weight:600}
+.banner.error{background:var(--err);border-color:var(--errline)}
+.banner button{margin-left:10px}
+.verdict{border-left:6px solid var(--ink);background:var(--panel);padding:14px 18px;margin:12px 0;border-radius:0 6px 6px 0}
+.verdict .big{font-size:1.35rem;margin:0}
+.verdict .note{margin:.5em 0 0;font-size:.9rem;color:var(--muted)}
+.verdict.unavailable{border-color:var(--warnline);background:var(--warn)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--a);border-radius:6px;padding:14px 16px}
+.card.b{border-top-color:var(--b)}
+.card h3{margin:0;font-size:1rem}
+.card .big{font-size:2.4rem;line-height:1.1;margin:.2em 0 0}
+.card .sub{color:var(--muted);font-size:.9rem;margin:0 0 .6em}
+dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:.9rem}
+dt{color:var(--muted)} dd{margin:0;text-align:right}
+.card ul{margin:.5em 0 0;padding-left:1.1em;font-size:.85rem}
+svg{width:100%;height:auto;display:block}
+.legend{font-size:.82rem;color:var(--muted);margin:.4em 0 0}
+.limits ul{margin:0;padding-left:1.1em} .limits li{margin:.3em 0}
+#provenance p{margin:.2em 0;font-size:.9rem}
+@media (prefers-reduced-motion:no-preference){.verdict,.card{transition:border-color .2s}}
+
+.limits-set{border:1px solid var(--line);border-radius:6px;margin:14px 0 0;padding:8px 14px 12px}
+.limits-set legend{font-size:.85rem;color:var(--muted);padding:0 6px}
+.mrow{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:4px 0}
+.mrow .chk{flex-direction:row;align-items:center;gap:8px;min-width:180px;color:var(--ink);font-size:.95rem}
+.mrow label{flex-direction:row;align-items:center;gap:6px}
+.mrow input[type=number]{width:90px}
+.unit{color:var(--muted);font-size:.85rem}
+.mblock{border-top:1px solid var(--line);margin-top:.8em;padding-top:.6em}
+.mblock h4{margin:0;font-size:.9rem;color:var(--muted);font-weight:600}
+.mblock .big{font-size:1.9rem}
+.verdict ul{margin:.5em 0 0;padding-left:1.1em;font-size:.92rem}
+.chartwrap h3{font-size:.95rem;margin:.8em 0 .2em}
+
+table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}td.num,th.num{text-align:right}
+.dot{display:inline-block;width:.7em;height:.7em;border-radius:50%;margin-right:5px}
+.periods h3{font-size:.95rem;margin:1em 0 .3em}.tablewrap{overflow-x:auto}

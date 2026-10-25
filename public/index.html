@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparar dois sensores</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <p class="kicker">Human Experience · M1 · ambiente de trabalho</p>
+  <h1>Em que períodos o ambiente saiu do intervalo que defini?</h1>
+  <p class="scenario">Cenário hipotético: um espaço de trabalho com sensor. Defino o intervalo aceitável de temperatura e humidade e vejo quando foi ultrapassado e durante quanto tempo; posso pôr dois dispositivos lado a lado (por exemplo, dois postos). A localização dos sensores não é conhecida nem assumida; os limites são hipóteses didáticas.</p>
+</header>
+
+<div id="modeBanner" class="banner" hidden></div>
+
+<section class="panel" aria-label="Parâmetros">
+  <div class="grid">
+    <label>Fonte
+      <select id="source"><option value="api">API Human Experience</option><option value="demo">Dados históricos (demonstração)</option></select>
+    </label>
+    <label>Dispositivo A <select id="devA"></select></label>
+    <label>Dispositivo B <select id="devB"></select></label>
+    <label>Início (UTC) <input id="from" type="datetime-local"></label>
+    <label>Fim (UTC) <input id="to" type="datetime-local"></label>
+  </div>
+  <fieldset class="limits-set">
+    <legend>Limites aceitáveis</legend>
+    <div class="mrow" data-key="temp"><label class="chk"><input type="checkbox" checked> Temperatura</label><label>mín <input type="number" step="0.5" class="min"></label><label>máx <input type="number" step="0.5" class="max"></label><span class="unit">°C</span></div>
+    <div class="mrow" data-key="hum"><label class="chk"><input type="checkbox" checked> Humidade relativa</label><label>mín <input type="number" step="1" class="min"></label><label>máx <input type="number" step="1" class="max"></label><span class="unit">%</span></div>
+  </fieldset>
+  <div class="actions">
+    <button id="refresh" type="button">Atualizar dados</button>
+    <span id="hint" class="hint">Fonte, dispositivos e período (máx. 24 h) só mudam ao atualizar; limites e métricas recalculam logo.</span>
+  </div>
+</section>
+
+<div id="error" class="banner error" role="alert" hidden></div>
+
+<main id="results" hidden>
+  <section id="verdict" class="verdict" aria-live="polite"></section>
+  <section class="panel periods" id="periods"></section>
+  <section class="cards" id="cards"></section>
+  <section class="panel">
+    <h2>Evolução no período</h2>
+    <div id="charts"></div>
+  </section>
+  <section class="panel" id="provenance"></section>
+  <section class="panel limits">
+    <h2>Como ler este resultado</h2>
+    <ul>
+      <li>Cada leitura vale até à seguinte. Se faltarem mais de 7,5 min entre leituras, é uma <strong>lacuna</strong>: esse tempo não conta como dentro nem como fora do intervalo.</li>
+      <li>Os limites são hipóteses didáticas, não normas de saúde ou segurança. Os sensores não foram calibrados nem auditados.</li>
+      <li>Diferenças pequenas entre dispositivos podem vir do próprio sensor, não só do ambiente.</li>
+    </ul>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>

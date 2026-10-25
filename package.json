@@ -1,0 +1,11 @@
+{
+  "name": "comparador-sensores",
+  "version": "1.0.0",
+  "description": "Compara dois sensores Human Experience: quem esteve mais tempo fora de um intervalo definido pelo utilizador.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  }
+}
